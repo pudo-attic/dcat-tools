@@ -1,0 +1,12 @@
+
+rdflib>=3.0.0
+lxml>=2.2.7
+Flask>=0.6
+Flask-Genshi>=0.5.1
+PasteScript>=1.7.3
+WebHelpers>=1.2
+html5lib>=0.90
+Babel>=0.9.5
+
+-e hg+https://solrpy.googlecode.com/hg/#egg=solrpy
+-e hg+https://okfn@bitbucket.org/ww/ckanrdf#egg=ckanrdf

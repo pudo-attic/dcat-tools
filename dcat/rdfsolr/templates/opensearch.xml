@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>${app.site_title}</ShortName>
+  <Description>${app.site_slogan}</Description>
+  <Tags>public data opendata</Tags>
+  <Contact>info@okfn.org</Contact>
+  <Url type="text/html" 
+    template="${app.site_url}?q={searchTerms}&amp;p={startPage?}"/>
+   <LongName>${app.site_title} - ${app.site_slogan}</LongName>
+   <Image height="64" width="64" type="image/png">${h.static(app.site_logo)}</Image>
+   <Image height="16" width="16" type="image/vnd.microsoft.icon">${h.static('media/favicon.ico')}</Image>
+   <Query role="example" searchTerms="cat" />
+   <Developer>Open Knowledge Foundation - http://okfn.org</Developer>
+   <Attribution>
+     Copyright (C) 2011: The Open Knowledge Foundation. All content and data is openly licensed. 
+   </Attribution>
+   <SyndicationRight>open</SyndicationRight>
+   <AdultContent>false</AdultContent>
+   <Language>en-us</Language>
+   <OutputEncoding>UTF-8</OutputEncoding>
+   <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
+
+

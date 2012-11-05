@@ -1,0 +1,14 @@
+
+
+h1, h3, .site-title {
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Lucida, Arial, Helvetica, sans-serif !important;
+}
+
+a, a:visited {
+  font-weight: bold;
+  color: #B22;
+}
+
+a:hover {
+  color: #F22;
+}

@@ -1,0 +1,96 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+  xmlns:i18n="http://genshi.edgewall.org/i18n"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  py:strip="">
+
+  <py:def function="page_title">${result.query if result.query else 'Welcome'}</py:def>
+
+  <div py:match="content">
+    <py:choose test="result.has_query">
+        <py:when test="">
+            <py:if test="len(result.active_facets)">
+                <div class="span-4 prepend-2">
+                    <strong>Filter by</strong>:
+                </div>
+                <div class="span-12 append-2 last">
+                    <ul class="filters">
+                        <li py:for="(facet, value) in result.active_facets">
+                          ${result.facets.get(facet)}: 
+                          <a href="${result.remove_filter_url(facet, value)}"><img src="${h.static('media/bullet_delete.png')}" alt="remove filter" />${value}</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr />
+            </py:if>
+            <div class="span-6">
+                <py:for each="(facet, facet_title) in result.facets.items()"
+                    py:with="last = 'last' if facet==result.facets.keys()[-1] else ''"
+                    py:if="len(list(result.facet_options(facet)))">
+            		<h3>${facet_title}</h3>
+            		<ul>
+            		    <li py:for="name, count in result.facet_options(facet)">
+            		        <a href="${result.add_filter_url(facet, name)}">${name}</a> 
+            		        (${count})
+            		    </li>
+            		</ul>
+            	</py:for>
+            	&nbsp;
+        	</div>
+        	<div class="span-16 append-2 last">
+        	    <py:if test="result.result_count">
+        		    <ul class="result-list">
+        		        <li py:for="entry in result.results" class="result-entry">
+        		            <a class="result-header" href="${entry.get('link')}">
+        		                ${entry.get('title', entry.get('name'))}
+        		            </a>
+        		            <p py:if="entry.get('description')">
+        		                ${h.truncate(entry.get('description', ''), length=180, whole_word=True)}
+        		            </p>
+        		            <span>
+        		                <py:if test="entry.get('publisher', entry.get('publisher_link'))">
+        		                    from 
+        		                    <a href="${entry.get('publisher_link')}">${entry.get('publisher', entry.get('publisher_link'))}</a>
+        		                    &middot;
+        		                </py:if>
+            		            <py:if test="entry.get('format')">
+                                    <span class="result-format" py:for="format in entry.get('format')">
+                		                ${format}
+                                    </span>
+                                    &middot; 
+            		            </py:if>
+        		                <py:if test="entry.get('creator')">
+        		                    ${entry.get('creator')[0]}
+        		                </py:if>
+        		            </span>
+        		        </li>
+        		    </ul>
+            		<div class="pager"> 
+                        ${result.pager()}
+            		</div>
+        		</py:if>
+        		<py:if test="not result.result_count">
+        		    <p>
+        		        <b>No results.</b>
+        		    </p>
+        		</py:if>
+        	</div>        
+        </py:when>
+        <py:otherwise test="">
+            <py:for each="(facet, facet_title) in result.facets.items()"
+                py:with="last = 'last' if facet==result.facets.keys()[-1] else ''">
+                <div class="span-8 ${last}">
+        		    <h3>${facet_title}</h3>
+        		    <ul>
+        		        <li py:for="name, count in result.facet_options(facet)">
+        		            <a href="${result.add_filter_url(facet, name)}">${name}</a> 
+        		            (${count})
+        		        </li>
+        		    </ul>
+        	    </div>
+        	</py:for>
+        </py:otherwise>
+    </py:choose>
+  </div>
+
+  <xi:include href="layout.html" />
+</html>

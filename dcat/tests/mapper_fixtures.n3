@@ -1,0 +1,172 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix licenses: <http://purl.org/okfn/licenses/> .
+@prefix opmv: <http://purl.org/net/opmv/ns#> .
+@prefix ordf: <http://purl.org/NET/ordf/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rev: <http://purl.org/stuff/rev#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://semantic.ckan.net/package/eu-fts.n3> a opmv:Artifact;
+    opmv:wasGeneratedBy <http://semantic.ckan.net/package/eu-fts#ZoaAgpFB6979>;
+    foaf:primaryTopic <http://semantic.ckan.net/package/eu-fts>;
+    foaf:topic <http://ckan.net/package/eu-fts> .
+
+<http://semantic.ckan.net/package/eu-fts.nt> a opmv:Artifact;
+    opmv:wasGeneratedBy <http://semantic.ckan.net/package/eu-fts#ZoaAgpFB6979>;
+    foaf:primaryTopic <http://semantic.ckan.net/package/eu-fts>;
+    foaf:topic <http://ckan.net/package/eu-fts> .
+
+<http://semantic.ckan.net/package/eu-fts.rdf> a opmv:Artifact;
+    opmv:wasGeneratedBy <http://semantic.ckan.net/package/eu-fts#ZoaAgpFB6979>;
+    foaf:primaryTopic <http://semantic.ckan.net/package/eu-fts>;
+    foaf:topic <http://ckan.net/package/eu-fts> .
+
+<http://semantic.ckan.net/package/eu-fts> a opmv:Artifact,
+        dcat:CatalogRecord;
+    rdfs:label "Record: EU - Financial Transparency System";
+    dc:publisher <http://ckan.net/>;
+    dc:title "Record: EU - Financial Transparency System";
+    opmv:wasGeneratedBy <http://semantic.ckan.net/package/eu-fts#ZoaAgpFB6979>;
+    dcat:dataset <http://ckan.net/package/eu-fts>;
+    foaf:isPrimaryTopicOf <http://semantic.ckan.net/package/eu-fts.n3>,
+        <http://semantic.ckan.net/package/eu-fts.nt>,
+        <http://semantic.ckan.net/package/eu-fts.rdf> .
+
+<http://semantic.ckan.net/package/eu-fts#ZoaAgpFB6979> a opmv:Process;
+    rdfs:label "paster on ubik.local (54262)";
+    ordf:cmdline "/Users/fl/Code/env/dcat/bin/paster crawl -c dp.ini";
+    ordf:hostname "ubik.local";
+    ordf:pid 54262;
+    ordf:version [ rdfs:label "ordf";
+            rdf:value "0.29" ];
+    opmv:used <http://ckan.net/api>,
+        <http://ckan.net/package/eu-fts>;
+    opmv:wasControlledBy [ a foaf:Agent;
+            foaf:nick "None" ];
+    opmv:wasPerformedAt [ a time:Instant;
+            time:inXSDDateTime "2011-03-11T21:28:25.055291"^^xsd:dateTime ] .
+
+<http://ckan.net/package/eu-fts> a dcat:Dataset;
+    rdfs:label "EU - Financial Transparency System";
+    dc:description """### About
+
+Overview:
+
+> The names of the beneficiaries of the €10 billion or so of grants and other forms of support, awarded (in budgetary terms: "committed") by the Commission every year, either directly or through "executive agencies" set up to help it run EU funded programmes. The site also contains certain procurement contracts, excluding for the moment those linked to administrative expenditure of the Commission.
+
+
+### Data
+
+Currently includes data from 2007. 2009 will be the first year for which figures will be available in full. Over 28,000 records.
+
+Main fields are:
+
+ * ﻿Year
+ * Name of beneficiary
+ * Coordinator
+ * Address,City
+ * Postal code
+ * Country / Territory
+ * Co-financing rate
+ * Amount
+ * Commitment position key
+ * Subject of grant or contract
+ * Responsible Department
+ * Budget line name and number
+ * Programme
+
+More details can be found at:
+
+ * <http://ec.europa.eu/beneficiaries/fts/find_en.htm>
+
+### Openness
+
+Free to be re-used as long as attribution is given. The [Copyright notice](http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright) on the European Commission website states:
+
+> Reproduction is authorised, provided the source is acknowledged, save where otherwise stated.
+
+> Where prior permission must be obtained for the reproduction or use of textual and multimedia information (sound, images, software, etc.), such permission shall cancel the above-mentioned general permission and shall clearly indicate any restrictions on use.""";
+    dc:identifier "eu-fts";
+    dc:rights licenses:other-open;
+    dc:spatial "International";
+    dc:title "EU - Financial Transparency System";
+    opmv:wasGeneratedBy <http://opendatasearch.org/process/CkanDatasetCrawler#ckan_net>;
+    rev:rating 3.5;
+    = <urn:uuid:1d20b3a7-4a03-4dea-95bd-937d27431d8a>;
+    dcat:distribution [ a dcat:Distribution;
+            dcat:accessURL <http://ec.europa.eu/budget/fts/index.cfm?fuseaction=download_export&lg=en> ],
+        [ a dcat:Distribution;
+            rdfs:label "2007 Data, XML, English";
+            dc:format [ rdfs:label "XML";
+                    rdf:value "text/xml";
+                    rdfs:comment "Extensible Markup Language" ];
+            dcat:accessURL <http://storage.ckan.net/wdmmg/fts-2007-en-xml> ],
+        [ a dcat:Distribution;
+            rdfs:label "2008 Data, XML, English";
+            dc:format [ rdfs:label "XML";
+                    rdf:value "text/xml";
+                    rdfs:comment "Extensible Markup Language" ];
+            dcat:accessURL <http://storage.ckan.net/wdmmg/fts-2008-en-xml> ],
+        [ a dcat:Distribution;
+            rdfs:label "2009 Data, XML, English";
+            dc:format [ rdfs:label "XML";
+                    rdf:value "text/xml";
+                    rdfs:comment "Extensible Markup Language" ];
+            dcat:accessURL <http://storage.ckan.net/wdmmg/fts-2009-en-xml> ];
+    dcat:keyword "access-bulk",
+        "budget",
+        "eu",
+        "eutransparency",
+        "finance",
+        "format-csv",
+        "format-xls",
+        "format-xml";
+    foaf:homepage <http://ec.europa.eu/beneficiaries/fts/find_en.htm>;
+    foaf:page <http://semantic.ckan.net/package/eu-fts.n3>,
+        <http://semantic.ckan.net/package/eu-fts.nt>,
+        <http://semantic.ckan.net/package/eu-fts.rdf> .
+
+<http://www.data-publica.com/en/data_set_module/1048> a dcat:Dataset;
+    rdfs:label "Données statistiques sur la construction de locaux non résidentiels de janvier 2005 à juin 2010"@fr;
+    dc:accrualPeriodicity ""@en;
+    dc:created "2010-07-29T16:33:00";
+    dc:creator <http://www.data-publica.com/en/organisation_module/13>;
+    dc:description "Données statistiques sur la construction de locaux non résidentiels de janvier 2005 à juin 2010 (données classées par type de locaux : bureaux, entrepôt, commerces, hôtellerie, industrie, services publics ou collectifs et par départements)"@fr;
+    dc:identifier "1048";
+    dc:modified "2010-06-30T00:00:00";
+    dc:publisher <http://www.data-publica.com/>;
+    dc:rights <http://www.data-publica.com/en/software_licence_module/1>;
+    dc:spatial "France";
+    dc:subject "Real Estate & Construction"@en;
+    dc:title "Données statistiques sur la construction de locaux non résidentiels de janvier 2005 à juin 2010"@fr;
+    opmv:wasGeneratedBy <http://opendatasearch.org/process/DataPublicaDatasetCrawler#data_publica>;
+    dcat:distribution <http://www.data-publica.com/en/data-publications/20100729-29>;
+    dcat:keywords "bureau"@fr,
+        "commerce"@fr,
+        "construction"@fr,
+        "entrepôt"@fr,
+        "hôtel"@fr;
+    foaf:homepage <http://www.statistiques.equipement.gouv.fr/article.php3?id_article=933> .
+
+<http://www.data-publica.com/> rdfs:label "Data Publica" .
+
+<http://www.data-publica.com/en/data-publications/20100729-29> a dcat:Distribution;
+    rdfs:label "DonnÃ©es statistiques sur la construction de locaux non rÃ©sidentiels de janvier 2005 Ã  juin 2010"@fr;
+    dc:description ""@fr;
+    dc:format [ a dc:IMT;
+            rdfs:label "Excel";
+            rdf:value "application/vnd.ms-excel";
+            rdfs:comment "Microsoft Excel" ];
+    dc:identifier "20100729-29";
+    dcat:accessURL <http://www.statistiques.equipement.gouv.fr/IMG/xls/C_S_loc_201006_cle5b3b51.xls> .
+
+<http://www.data-publica.com/en/organisation_module/13> rdfs:label "Ministère de l’Écologie, de l’Énergie du Développement durable  et de la Mer";
+    foaf:name "Ministère de l’Écologie, de l’Énergie du Développement durable  et de la Mer" .
+
+<http://www.data-publica.com/en/software_licence_module/1> rdfs:label "Licence Information Publique" .
+
+

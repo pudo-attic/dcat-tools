@@ -1,0 +1,6 @@
+*.pyc
+*.egg-info
+*.ini
+*.swp
+*.DS_Store
+data/*

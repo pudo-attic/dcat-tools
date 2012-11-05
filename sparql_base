@@ -1,0 +1,31 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT * WHERE {
+ ?s ?p ?o
+} LIMIT 10
+
+
+
+
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?o WHERE {
+ ?dataset a dcat:Dataset . 
+ { ?dataset dc:format ?o } 
+ UNION 
+ { ?dataset dcat:distribution ?dist . ?dist dc:format ?o . FILTER isLiteral(?o) } 
+ UNION 
+ { ?dataset dcat:distribution ?dist . ?dist dc:format ?imt . ?imt rdfs:label ?o  } 
+} LIMIT 10000
+
+
